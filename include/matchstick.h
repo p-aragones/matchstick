@@ -9,14 +9,17 @@
 #define MATCHSTICK_H_
 
 #include "utils.h"
+#include "input.h"
 
 void print_map(int *, int);
 int *create_map(int);
 
-int get_line(int n);
-int get_matches(int n);
+int get_line(int, input_t *);
+int get_matches(int, input_t *);
+void handle_input(input_t *, int);
+void init_input(input_t *);
 
-void print_player(int, int);
+void print_player(int, int, int **, int *);
 
 int matchstick(int, int);
 
