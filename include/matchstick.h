@@ -20,6 +20,7 @@ void handle_input(input_t *, int, int *, int);
 void init_input(input_t *);
 
 void print_player(int, int, int **, int *);
+void print_ai(int, int);
 
 int matchstick(int, int);
 

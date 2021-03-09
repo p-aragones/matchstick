@@ -18,7 +18,7 @@ void print_player(int line, int matches, int **map, int *total)
     (*map)[line - 1] -= matches;
 }
 
-void print_AI(int line, int matches)
+void print_ai(int line, int matches)
 {
     my_putstr("AI removed ");
     my_put_nbr(matches);
