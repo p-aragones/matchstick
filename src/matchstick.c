@@ -7,12 +7,12 @@
 
 #include "matchstick.h"
 
-void handle_input(input_t *input, int n, int *map)
+void handle_input(input_t *input, int n, int *map, int max)
 {
     input->line = get_line(n, input, map);
-    input->matches = get_matches(n, input, map);
+    input->matches = get_matches(max, input, map);
     if (input->line == 0 || input->matches == 0)
-        handle_input(input, n, map);
+        handle_input(input, n, map, max);
 }
 
 int main_loop(int *map, int n, int max)
@@ -26,7 +26,7 @@ int main_loop(int *map, int n, int max)
     while (total > 0) {
         print_map(map, n);
         my_putstr("\nYour turn:\n");
-        handle_input(input, n, map);
+        handle_input(input, n, map, max);
         print_player(input->line, input->matches, &map, &total);
         print_map(map, n);
         my_putstr("\nAI's turn...\n");
