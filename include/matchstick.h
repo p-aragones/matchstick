@@ -19,6 +19,10 @@ int get_matches(int, input_t *, int *);
 void handle_input(input_t *, int, int *, int);
 void init_input(input_t *);
 
+int ai_turn(int **, int, input_t *, int *);
+int remove_match(int **, int, input_t *, int *);
+void ai_lost(int **);
+
 void print_player(int, int, int **, int *);
 void print_ai(int, int);
 

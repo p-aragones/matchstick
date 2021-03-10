@@ -19,6 +19,7 @@ int main_loop(int *map, int n, int max)
 {
     input_t *input = malloc(sizeof(input_t));
     int total = n * n;
+    int win_status = 0;
 
     init_input(input);
     if (!input)
@@ -29,7 +30,13 @@ int main_loop(int *map, int n, int max)
         handle_input(input, n, map, max);
         print_player(input->line, input->matches, &map, &total);
         print_map(map, n);
-        my_putstr("\nAI's turn...\n");
+        win_status = ai_turn(&map, max, input, &total);
+        if (win_status == 1) {
+            print_map(map, n);
+            my_putstr("I lost... snif... but I'll get you next time!!\n");
+            return (win_status);
+        } else if (win_status == 2)
+            return (win_status);
     }
 }
 
