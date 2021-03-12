@@ -16,7 +16,7 @@ int *create_map(int);
 
 int get_line(int, input_t *, int *);
 int get_matches(int, input_t *, int *);
-void handle_input(input_t *, int, int *, int);
+int handle_input(input_t *, int, int *, int);
 void init_input(input_t *);
 
 int ai_turn(int **, int, input_t *, int *);
