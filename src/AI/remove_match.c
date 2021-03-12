@@ -7,6 +7,13 @@
 
 #include "matchstick.h"
 
+void match_removed(int remove, int *total, int **map, int i)
+{
+    (*map)[i] -= remove;
+    *total -= remove;
+    print_ai(i + 1, remove);
+}
+
 int remove_match(int **map, int max, input_t *input, int *total)
 {
     int remove = max - input->matches;
@@ -19,9 +26,7 @@ int remove_match(int **map, int max, input_t *input, int *total)
     while ((*map)[i] != -1) {
         n_matches = (*map)[i];
         if (remove <= n_matches) {
-            (*map)[i] -= remove;
-            *total -= remove;
-            print_ai(i + 1, remove);
+            match_removed(remove, total, map, i);
             return (0);
         }
         i++;
