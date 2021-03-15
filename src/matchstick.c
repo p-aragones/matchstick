@@ -29,7 +29,7 @@ int main_loop(int *map, int n, int max)
     init_input(input);
     if (!input)
         return (84);
-    while (total > 0) {
+    while (win_status != 1 && win_status != 2) {
         print_map(map, n);
         my_putstr("\nYour turn:\n");
         if (handle_input(input, n, map, max) != 0)
@@ -37,26 +37,25 @@ int main_loop(int *map, int n, int max)
         print_player(input->line, input->matches, &map, &total);
         print_map(map, n);
         win_status = ai_turn(&map, max, input, &total);
-        if (win_status == 1) {
-            print_map(map, n);
-            my_putstr("I lost... snif... but I'll get you next time!!\n");
-            return (win_status);
-        } else if (win_status == 2)
-            return (win_status);
     }
+    if (win_status == 1)
+        print_map(map, n);
+    return (win_status);
 }
 
 int matchstick(int n, int max)
 {
     int *map;
-    int error = 0;
+    int status = 0;
 
     if (n <= 1 || n >= 100 || max <= 0)
         return (84);
     map = create_map(n);
     if (!map)
         return (84);
-    error = main_loop(map, n, max);
+    status = main_loop(map, n, max);
+    if (status == 1)
+        my_putstr("I lost... snif... but I'll get you next time!!\n");
     free (map);
-    return (error);
+    return (status);
 }
