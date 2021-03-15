@@ -33,7 +33,7 @@ int main_loop(int *map, int n, int max)
         print_map(map, n);
         my_putstr("\nYour turn:\n");
         if (handle_input(input, n, map, max) != 0)
-            return (84);
+            return (0);
         print_player(input->line, input->matches, &map, &total);
         print_map(map, n);
         win_status = ai_turn(&map, max, input, &total);
