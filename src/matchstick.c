@@ -10,13 +10,15 @@
 int handle_input(input_t *input, int n, int *map, int max)
 {
     input->line = get_line(n, input, map);
-    if (input->line == -1)
+    if (input->line == EOF)
         return (84);
     input->matches = get_matches(max, input, map);
-    if (input->line == 0 || input->matches == 0)
-        handle_input(input, n, map, max);
-    if (input->matches == -1)
+    if (input->matches == EOF)
         return (84);
+    if (input->line == 0 || input->matches == 0) {
+        if (handle_input(input, n, map, max) == 84)
+            return (84);
+    }
     return (0);
 }
 
@@ -32,7 +34,7 @@ int main_loop(int *map, int n, int max)
     while (win_status != 1 && win_status != 2) {
         print_map(map, n);
         my_putstr("\nYour turn:\n");
-        if (handle_input(input, n, map, max) != 0)
+        if (handle_input(input, n, map, max) == 84)
             return (0);
         print_player(input->line, input->matches, &map, &total);
         print_map(map, n);
