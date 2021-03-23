@@ -31,7 +31,9 @@ int matches_error(int nbr, char *ln, int *map, int n)
 {
     if (my_str_isnum(ln) == 0) {
         my_putstr("Error: invalid input (positive number expected)\n");
-    } else if (my_getnbr(ln) < 1) {
+        return (84);
+    }
+    if (my_getnbr(ln) < 1) {
         my_putstr("Error: you have to remove at least one match\n");
         return (84);
     }
