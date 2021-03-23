@@ -20,7 +20,6 @@ int remove_match(int **map, int max, input_t *input, int *total)
     int n_matches = 0;
     int i = 0;
 
-    my_putstr("\nAI's turn...\n");
     if (remove <= 0)
         remove = 1;
     while ((*map)[i] != -1) {

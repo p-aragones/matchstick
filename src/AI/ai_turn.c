@@ -13,6 +13,7 @@ int ai_turn(int **map, int max, input_t *input, int *total)
         my_putstr("You lost, too bad...\n");
         return (2);
     } else {
+        my_putstr("\nAI's turn...\n");
         remove_match(map, max, input, total);
         if (*total == 0) {
             ai_lost(map);
