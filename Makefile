@@ -15,7 +15,7 @@ SRC		+=	$(call RWILDCARD,$(PATH_SRC),*.c)
 
 OBJ	=	$(SRC:.c=.o)
 
-CFLAGS	=	-I./include/
+CFLAGS	=	-I./include/ -g3
 
 LDLIBS	=	-L./lib/ -lmy
 

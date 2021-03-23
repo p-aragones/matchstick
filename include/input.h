@@ -11,6 +11,7 @@
 typedef struct input_s {
     int matches;
     int line;
+    int len;
 } input_t;
 
 #endif /* !INPUT_H_ */

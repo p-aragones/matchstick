@@ -17,14 +17,16 @@ int *create_map(int);
 int get_line(int, input_t *, int *);
 int get_matches(int, input_t *, int *);
 int handle_input(input_t *, int, int *, int);
-void init_input(input_t *);
+void init_input(input_t *, int);
 
 int ai_turn(int **, int, input_t *, int *);
 int remove_match(int **, int, input_t *, int *);
 void ai_lost(int **);
+int int_to_bin(int);
+int *bin_array(int **, int);
 
-void print_player(int, int, int **, int *);
 void print_ai(int, int);
+void print_player(int, int, int **, int *);
 
 int matchstick(int, int);
 

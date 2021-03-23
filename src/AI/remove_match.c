@@ -16,6 +16,7 @@ void match_removed(int remove, int *total, int **map, int i)
 
 int remove_match(int **map, int max, input_t *input, int *total)
 {
+    int *bin_map = bin_array(map, input->len);
     int remove = max - input->matches;
     int n_matches = 0;
     int i = 0;

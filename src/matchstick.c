@@ -28,7 +28,7 @@ int main_loop(int *map, int n, int max)
     int total = n * n;
     int win_status = 0;
 
-    init_input(input);
+    init_input(input, n);
     if (!input)
         return (84);
     while (win_status != 1 && win_status != 2) {

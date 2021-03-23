@@ -7,8 +7,9 @@
 
 #include "matchstick.h"
 
-void init_input(input_t *input)
+void init_input(input_t *input, int n)
 {
     input->line = 0;
     input->matches = 0;
+    input->len = n;
 }
