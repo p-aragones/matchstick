@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 int compare_strings(char const *, char const *, int);
 int my_count_two(char const *);
