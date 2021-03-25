@@ -28,6 +28,8 @@ int *bin_array(int **, int);
 int nim_sum(int **);
 
 int win_move(int **, int, int *);
+int even_move(int **, int *, int);
+int odd_move(int **, int *, int);
 bool check_win(int **, int);
 
 void print_ai(int, int);

@@ -7,16 +7,6 @@
 
 #include "matchstick.h"
 
-void save_lines(int *first_line, int *second_line, int *n, int i)
-{
-    *n += 1;
-    if (*first_line == -1) {
-        *first_line = i;
-    } else {
-        *second_line = i;
-    }
-}
-
 bool check_win(int **map, int max)
 {
     int i = 0;
@@ -25,30 +15,47 @@ bool check_win(int **map, int max)
     int n = 0;
 
     while ((*map)[i] != -1) {
-        if ((*map)[i] > 0)
-            save_lines(&first_line, &second_line, &n, i);
+        if ((*map)[i] > 1)
+            n++;
         i++;
     }
-    if (n == 2 && ((*map)[first_line] == 1 || (*map)[second_line] == 1))
+    if (n == 1)
         return (true);
     return (false);
+}
+
+int get_remove(int remove, int max, int line)
+{
+    if (remove <= max)
+        return (remove);
+    if (line - max - 1 > 0)
+        return (max - 1);
+    return (1);
+}
+
+int n_lines(int **map)
+{
+    int i = 0;
+    int n = 0;
+
+    while ((*map)[i] != -1) {
+        if ((*map)[i] > 0)
+            n++;
+        i++;
+    }
+    return (n);
 }
 
 int win_move(int **map, int max, int *total)
 {
     int remove = 0;
+    int lines = n_lines(map);
     int i = 0;
 
-    while ((*map)[i] != -1) {
-        remove = (*map)[i];
-        if (remove > max)
-            remove = max;
-        if ((*map)[i] != 0 || (*map)[i] != 1) {
-            match_removed(remove, total, map, i);
-            return (0);
-        }
-        i++;
-    }
+    if (lines % 2 == 0)
+        even_move(map, total, max);
+    else
+        odd_move(map, total, max);
     return (0);
 }
 
