@@ -58,5 +58,3 @@ int win_move(int **map, int max, int *total)
         odd_move(map, total, max);
     return (0);
 }
-
-
