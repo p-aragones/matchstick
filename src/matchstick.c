@@ -42,6 +42,7 @@ int main_loop(int *map, int n, int max)
     }
     if (win_status == 1)
         print_map(map, n);
+    free (input);
     return (win_status);
 }
 
