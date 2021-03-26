@@ -58,7 +58,7 @@ int remove_nim(int **map, int *total, int max)
     int n_matches = 0;
     int i = 0;
 
-    if (remove == -1)
+    if (remove <= 0)
         line = remove_random(&remove, map);
     if (remove > max || remove <= 0)
         remove = 1;
