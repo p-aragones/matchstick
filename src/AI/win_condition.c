@@ -10,8 +10,6 @@
 bool check_win(int **map, int max)
 {
     int i = 0;
-    int first_line = -1;
-    int second_line = -1;
     int n = 0;
 
     while ((*map)[i] != -1) {
@@ -48,9 +46,7 @@ int n_lines(int **map)
 
 int win_move(int **map, int max, int *total)
 {
-    int remove = 0;
     int lines = n_lines(map);
-    int i = 0;
 
     if (lines % 2 == 0)
         even_move(map, total, max);

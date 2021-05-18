@@ -48,7 +48,7 @@ int main_loop(int *map, int n, int max)
 
 int matchstick(int n, int max)
 {
-    int *map;
+    int *map = NULL;
     int status = 0;
 
     if (n <= 1 || n >= 100 || max <= 0)

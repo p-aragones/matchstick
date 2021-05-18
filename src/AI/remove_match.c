@@ -55,8 +55,6 @@ int remove_nim(int **map, int *total, int max)
 {
     int remove = nim_sum(map);
     int line = remove_from_line(&remove, map);
-    int n_matches = 0;
-    int i = 0;
 
     if (remove <= 0)
         line = remove_random(&remove, map);
